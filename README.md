@@ -1,2 +1,2 @@
 # HYU_Algorithm
-2015-2 HANYaNG University Algorithm Assignments
+2015-2 HANYANG University Algorithm Assignments
