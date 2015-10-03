@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define SIZE 2
-#define MAX_SIZE 10
+#define SIZE 10
+#define MAX_SIZE 30 // you can modify SIZE or MAX_SIZE value for test
 #define K (MAX_SIZE/SIZE)
 #include <stdio.h>
 #include <stdlib.h>
