@@ -1,14 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define SIZE 10
-#define MAX_SIZE 30
-#define K (MAX_SIZE/SIZE)
+#define SIZE 10 // the size of sub arrays n'
+#define MAX_SIZE 60 // the size of N.
+#define K (MAX_SIZE/SIZE) // for calculating unknown K.
 #include <stdio.h>
 #include <stdlib.h>
 //----------------------------------------------------------------------------
-//        O(NlogK)-Algorithm  
-// Step 1) create new empty Heap
-// Step 2) Build Max-Heap with Array[1...k] // O(k)
-// Step 3) Extrac and Insert // O(klogk) 
+//        O(nlogK)-Algorithm             
+// Step 1) create new empty Heap     
+// Step 2) Build Max-Heap with Array[1...(MAX_SZIE/SIZE)] // O(n')
+// Step 3) Extrac and Insert using Heap with K number nodes// O(nlogk) 
 //----------------------------------------------------------------------------
 typedef int Element;
 typedef struct HeapNode* Node;
@@ -78,58 +78,55 @@ int main(int argc, char* argv[])
 	{
 		for (j = 1; j <= SIZE; j++)
 		{
-			printf("index= %d element= %d ", my_Heap[i].Heap_Array[j].index, my_Heap[i].Heap_Array[j].key);
+			printf("%d-th Array element= %d ", my_Heap[i].Heap_Array[j].index, my_Heap[i].Heap_Array[j].key);
 			printf("\n");
 		}
 		printf("\n");
-	} printf("\n");
+	} printf("\n"); 
 
 	//----------------------------------------------------------------------------------------
-	//       K-way merge Using Max-Heap
+	//       O(NlogK) Algorithm Using Max-Heap
 	//----------------------------------------------------------------------------------------
 	// Insery keys in Heap having k nodes
 	// 1) run Insert_Key func to implement heap using the k number arrays
-	// 2) extrac min and Insert a new key
-	s = i = j = 0;
-
+	// 2) extrac max and Insert a new key
+	s = i = j = 0;  
 	while (!isFull(Merge_Heap))
 	{
 		Insert_New_Key(&my_Heap[i].Heap_Array[my_Heap[i].Current_Size--], Merge_Heap);
 		i++;
 	}
-	while (!isEmpty(Merge_Heap)) // times : O(n)
+	while (!isEmpty(Merge_Heap)) // times : O(n) 
 	{
-		HNode = Extrac_Max(Merge_Heap); // tiems: O(1)+O(logK)
-	
+		HNode = Extrac_Max(Merge_Heap); // tiems: O(1) Extrac Maxium +O(logK) Max-Heapify
+
 		Merged_list[s] = HNode.key;
-		
-		printf("\n");
 
 		for (i = 0; HNode.index != i && i < K; i++)
 		{
 			//do nothing, only to increment i until hit the exact index
 		}
 
-		printf("What we hit next i-th Sub-array? i= %d ", i);
-
 		if (!isEmpty(&my_Heap[i]))
 		{
 			if (!isFull(Merge_Heap))
-			Insert_New_Key(&my_Heap[i].Heap_Array[my_Heap[i].Current_Size], Merge_Heap); //tiems: O(1)+O(logK)
+				Insert_New_Key(&my_Heap[i].Heap_Array[my_Heap[i].Current_Size], Merge_Heap); 
+			//tiems: O(1) Insert key + O(logK) Max-Heapify
 			my_Heap[i].Current_Size--;
 		}
-		printf("\n");
 		s++;
 	}	printf("\n");
 
 	printf("----------------------------------------------------------------------------\n");
 	printf("			Completely Merged List\n");
 	printf("----------------------------------------------------------------------------\n");
-	
+
 	for (i = 0; i < MAX_SIZE; i++)
 	{
 		printf("%d ", Merged_list[i]);
 	}	printf("\n");
+	printf("the number of elements in Array= %d\n", i);
+	
 
 	//--------------------------------------------------------------------------------
 	//     Eliminate all dynamic allocations.
@@ -152,15 +149,15 @@ void Initialize_Max_Heap(Heap H, int X)
 		H->Heap_Array[i].index = X;
 		H->Current_Size++;
 		Max_Heapify(H);
-	}	
-	
+	}
+
 }
 
 void Init_Merge_Heap(Heap H)
 {
 	H->Capacity = K;
 	H->Current_Size = 0;
-	H->Heap_Array = (Node)malloc(sizeof(HeapNode)* K+ 1);
+	H->Heap_Array = (Node)malloc(sizeof(HeapNode)* K + 1);
 }
 
 void Max_Heapify(Heap H)
@@ -168,7 +165,7 @@ void Max_Heapify(Heap H)
 	int i, child;
 	int temp;
 
-	for (i = H->Current_Size / 2; i > 0; i--) // "Percolating-UP" Stage Staring from the bottom-level
+	for (i = H->Current_Size / 2; i > 0; i--) // "Percolating-UP" Stage Starting from the bottom-level
 	{
 		child = 2 * i;
 		if (H->Heap_Array[child].key > H->Heap_Array[i].key && child <= H->Current_Size)
@@ -177,11 +174,11 @@ void Max_Heapify(Heap H)
 			H->Heap_Array[i].key = H->Heap_Array[child].key;
 			H->Heap_Array[child].key = temp;
 		}
-		if (H->Heap_Array[child + 1].key > H->Heap_Array[i].key && child +1 <= H->Current_Size)
+		if (H->Heap_Array[child + 1].key > H->Heap_Array[i].key && child + 1 <= H->Current_Size)
 		{
 			temp = H->Heap_Array[i].key;
-			H->Heap_Array[i].key = H->Heap_Array[child+1].key;
-			H->Heap_Array[child+1].key = temp;
+			H->Heap_Array[i].key = H->Heap_Array[child + 1].key;
+			H->Heap_Array[child + 1].key = temp;
 		}
 	}
 }
@@ -202,19 +199,19 @@ void Insert_New_Key(Node X, Heap H)
 	}
 	else
 	{
-		for (i = ++H->Current_Size; H->Heap_Array[i/2].key < X->key && i > 1; i= i/2)
+		for (i = ++H->Current_Size; H->Heap_Array[i / 2].key < X->key && i > 1; i = i / 2)
 		{
 			if (i == 0)
 			{
 				break;
 			}
-				H->Heap_Array[i].key = H->Heap_Array[i/2].key;
-				H->Heap_Array[i].index = H->Heap_Array[i/2].index;
-		}		
-		
+			H->Heap_Array[i].key = H->Heap_Array[i / 2].key;
+			H->Heap_Array[i].index = H->Heap_Array[i / 2].index;
+		}
+
 		H->Heap_Array[i].index = X->index;
 		H->Heap_Array[i].key = X->key;
-		
+
 	}
 }
 
@@ -272,13 +269,13 @@ HeapNode Extrac_Max(Heap H)
 	}
 	else
 	{
-		
+
 		Max_Node = H->Heap_Array[1];
 		Max_Node.index = H->Heap_Array[1].index;
 		Max_Node.key = H->Heap_Array[1].key; // save the imformaiton on ROOT
 		Last_pos = H->Current_Size; // save the element of last max.
 		--H->Current_Size;// decrease the size of heap for heap sort.
-		
+
 		for (i = 1; i * 2 <= H->Current_Size; i = child)
 		{
 			child = 2 * i;
@@ -299,7 +296,7 @@ HeapNode Extrac_Max(Heap H)
 		temp_Node = Max_Node;
 		H->Heap_Array[i].key = H->Heap_Array[Last_pos].key;
 		H->Heap_Array[i].index = H->Heap_Array[Last_pos].index;
-		
+
 	}
 	return temp_Node;
 }
