@@ -1,0 +1,6 @@
+1. $ :%g/- \d\+ -/d
+2. $ :%g/Recommend C Coding StaRevision/d
+
+3-1 $ :%s/\([a-zA-Z0-9,]\)\n\s([a-zA-Z0-9,]\)/\1 \2
+3-2 $ :%s/\(\n\n\)\n\+/\1
+
