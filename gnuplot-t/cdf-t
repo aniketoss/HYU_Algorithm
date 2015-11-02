@@ -1,0 +1,14 @@
+reset
+set macros
+set boxwidth 0.1 absolute
+set xzeroaxis
+set yzeroaxis
+set zzeroaxis
+set title "Mixed Distribution (Lognormal with shifted Gaussian)"
+bin(x, s) = s*int(x/s)
+#GPFUN_bin = "bin(x,s) = s*int(x/s)"
+x = 0.0
+
+plot "random-points" u 4:(0.25*rand(0)-.35) t '',\
+     '' u (bin($4, 0.1)):(10/300.) smooth freq t 'smooth frequency' w boxes, \
+     '' u 4:(1/300.) smooth cumul t 'smooth cumulative'

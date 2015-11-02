@@ -1,0 +1,10 @@
+#!/bin/bash
+# to generate data for gnuplot
+
+[ -f my_data ] && rm my_data ;
+[ -f my_other_data ] && rm my_other_data ;
+
+for i in `seq 1 100` ; do
+	  echo $i $RANDOM | awk '{print $1 "\t" int($2/100)}' >> my_data ;
+	  echo $i $RANDOM | awk '{print $1 "\t" int($2/100)}' >> my_other_data ;
+done

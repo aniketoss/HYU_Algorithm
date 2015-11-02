@@ -1,0 +1,13 @@
+set xlabel "K^+ Momentum (GeV/c)" font "Helvetica, 24" textcolor "red" rotate by 45
+set ylabel "d^2{/Symbol s}/dp/d{/Symbol W} (mb/MeV/c)/str)" font "Helvetica, 24" textcolor "brown" offset -8,0
+
+set title "{/Symbol abcdefg}" font "Helvetica, 24" textcolor "blue"
+
+set xrange [0: 15]
+set yrange [0: ]
+
+set xtics rotate by 45 offset 0, -3 ( "1" 1, "3" 3, "6" 6, "7" 7, "8" 10 ) font "Helvetica, 24"
+set ytics font "Helvetica, 24" autofreq 50, 30, 250
+set ytics out scale 5, 1 nomirror  format "%5.3f deg"
+
+plot "my_data" using 1:2 with linespoint title "sample" lt 3 lw 4 pt 5 pointsize 3

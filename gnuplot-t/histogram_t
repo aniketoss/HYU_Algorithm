@@ -1,0 +1,9 @@
+set style histogram cluster
+set style data histogram
+set style fill solid 1.0 border -1
+set xtic 1 offset character 0,0.3
+set xrange [0:9]
+plot newhistogram "Set A" at 1, \
+                  'my_hist_data' u ($1*8) t "set a 1", '' u 2 t "set a 2", \
+     newhistogram "Set B" at 5, \
+                  'my_other_hist_data' u ($1*4) t "set b 1", '' u 2 t "set b 2"

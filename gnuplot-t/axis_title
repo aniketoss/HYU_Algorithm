@@ -1,0 +1,4 @@
+set xlabel "K^+ Momentum (GeV/c)" font "Helvetica, 13" textcolor lt 2 rotate by 45
+set ylabel "d^2{/Symbol s}/dp/d{/Symbol W} (mb/MeV/c)/str)" font "Helvetica, 14" textcolor lt 10 offset -3,0
+set title "{/Symbol abcdefg}" font "Helvetica, 14"
+plot "my_data" using 1:2 with steps title "sample" lt 10 lw 4

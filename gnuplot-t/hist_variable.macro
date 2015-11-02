@@ -1,0 +1,7 @@
+# Adopted from Hagen Wierstorf
+# http://www.gnuplotting.org/code/hist.fct
+# note that binwidth and binstart has to be set befor calling this
+
+set boxwidth 0.9*binwidth
+set style fill solid 0.5
+histo = 'u (binwidth*(floor(($1-binstart)/binwidth)+0.5)+binstart):(1.0) smooth freq w boxes'
