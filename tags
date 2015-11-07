@@ -1,0 +1,119 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CREATE_TRACE_POINTS	filemap.c	39;"	d	file:
+MMAP_LOTSAMISS	filemap.c	1799;"	d	file:
+__add_to_page_cache_locked	filemap.c	/^static int __add_to_page_cache_locked(struct page *page,$/;"	f	file:
+__delete_from_page_cache	filemap.c	/^void __delete_from_page_cache(struct page *page, void *shadow,$/;"	f
+__filemap_fdatawrite	filemap.c	/^static inline int __filemap_fdatawrite(struct address_space *mapping,$/;"	f	file:
+__filemap_fdatawrite_range	filemap.c	/^int __filemap_fdatawrite_range(struct address_space *mapping, loff_t start,$/;"	f
+__generic_file_write_iter	filemap.c	/^EXPORT_SYMBOL(__generic_file_write_iter);$/;"	v
+__generic_file_write_iter	filemap.c	/^ssize_t __generic_file_write_iter(struct kiocb *iocb, struct iov_iter *from)$/;"	f
+__lock_page	filemap.c	/^EXPORT_SYMBOL(__lock_page);$/;"	v
+__lock_page	filemap.c	/^void __lock_page(struct page *page)$/;"	f
+__lock_page_killable	filemap.c	/^EXPORT_SYMBOL_GPL(__lock_page_killable);$/;"	v
+__lock_page_killable	filemap.c	/^int __lock_page_killable(struct page *page)$/;"	f
+__lock_page_or_retry	filemap.c	/^int __lock_page_or_retry(struct page *page, struct mm_struct *mm,$/;"	f
+__page_cache_alloc	filemap.c	/^EXPORT_SYMBOL(__page_cache_alloc);$/;"	v
+__page_cache_alloc	filemap.c	/^struct page *__page_cache_alloc(gfp_t gfp)$/;"	f
+__read_cache_page	filemap.c	/^static struct page *__read_cache_page(struct address_space *mapping,$/;"	f	file:
+add_page_wait_queue	filemap.c	/^EXPORT_SYMBOL_GPL(add_page_wait_queue);$/;"	v
+add_page_wait_queue	filemap.c	/^void add_page_wait_queue(struct page *page, wait_queue_t *waiter)$/;"	f
+add_to_page_cache_locked	filemap.c	/^EXPORT_SYMBOL(add_to_page_cache_locked);$/;"	v
+add_to_page_cache_locked	filemap.c	/^int add_to_page_cache_locked(struct page *page, struct address_space *mapping,$/;"	f
+add_to_page_cache_lru	filemap.c	/^EXPORT_SYMBOL_GPL(add_to_page_cache_lru);$/;"	v
+add_to_page_cache_lru	filemap.c	/^int add_to_page_cache_lru(struct page *page, struct address_space *mapping,$/;"	f
+delete_from_page_cache	filemap.c	/^EXPORT_SYMBOL(delete_from_page_cache);$/;"	v
+delete_from_page_cache	filemap.c	/^void delete_from_page_cache(struct page *page)$/;"	f
+do_async_mmap_readahead	filemap.c	/^static void do_async_mmap_readahead(struct vm_area_struct *vma,$/;"	f	file:
+do_generic_file_read	filemap.c	/^static ssize_t do_generic_file_read(struct file *filp, loff_t *ppos,$/;"	f	file:
+do_read_cache_page	filemap.c	/^static struct page *do_read_cache_page(struct address_space *mapping,$/;"	f	file:
+do_sync_mmap_readahead	filemap.c	/^static void do_sync_mmap_readahead(struct vm_area_struct *vma,$/;"	f	file:
+end_page_writeback	filemap.c	/^EXPORT_SYMBOL(end_page_writeback);$/;"	v
+end_page_writeback	filemap.c	/^void end_page_writeback(struct page *page)$/;"	f
+filemap_check_errors	filemap.c	/^static int filemap_check_errors(struct address_space *mapping)$/;"	f	file:
+filemap_fault	filemap.c	/^EXPORT_SYMBOL(filemap_fault);$/;"	v
+filemap_fault	filemap.c	/^int filemap_fault(struct vm_area_struct *vma, struct vm_fault *vmf)$/;"	f
+filemap_fdatawait	filemap.c	/^EXPORT_SYMBOL(filemap_fdatawait);$/;"	v
+filemap_fdatawait	filemap.c	/^int filemap_fdatawait(struct address_space *mapping)$/;"	f
+filemap_fdatawait_range	filemap.c	/^EXPORT_SYMBOL(filemap_fdatawait_range);$/;"	v
+filemap_fdatawait_range	filemap.c	/^int filemap_fdatawait_range(struct address_space *mapping, loff_t start_byte,$/;"	f
+filemap_fdatawrite	filemap.c	/^EXPORT_SYMBOL(filemap_fdatawrite);$/;"	v
+filemap_fdatawrite	filemap.c	/^int filemap_fdatawrite(struct address_space *mapping)$/;"	f
+filemap_fdatawrite_range	filemap.c	/^EXPORT_SYMBOL(filemap_fdatawrite_range);$/;"	v
+filemap_fdatawrite_range	filemap.c	/^int filemap_fdatawrite_range(struct address_space *mapping, loff_t start,$/;"	f
+filemap_flush	filemap.c	/^EXPORT_SYMBOL(filemap_flush);$/;"	v
+filemap_flush	filemap.c	/^int filemap_flush(struct address_space *mapping)$/;"	f
+filemap_map_pages	filemap.c	/^EXPORT_SYMBOL(filemap_map_pages);$/;"	v
+filemap_map_pages	filemap.c	/^void filemap_map_pages(struct vm_area_struct *vma, struct vm_fault *vmf)$/;"	f
+filemap_page_mkwrite	filemap.c	/^EXPORT_SYMBOL(filemap_page_mkwrite);$/;"	v
+filemap_page_mkwrite	filemap.c	/^int filemap_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf)$/;"	f
+filemap_write_and_wait	filemap.c	/^EXPORT_SYMBOL(filemap_write_and_wait);$/;"	v
+filemap_write_and_wait	filemap.c	/^int filemap_write_and_wait(struct address_space *mapping)$/;"	f
+filemap_write_and_wait_range	filemap.c	/^EXPORT_SYMBOL(filemap_write_and_wait_range);$/;"	v
+filemap_write_and_wait_range	filemap.c	/^int filemap_write_and_wait_range(struct address_space *mapping,$/;"	f
+find_get_entries	filemap.c	/^unsigned find_get_entries(struct address_space *mapping,$/;"	f
+find_get_entry	filemap.c	/^EXPORT_SYMBOL(find_get_entry);$/;"	v
+find_get_entry	filemap.c	/^struct page *find_get_entry(struct address_space *mapping, pgoff_t offset)$/;"	f
+find_get_pages	filemap.c	/^unsigned find_get_pages(struct address_space *mapping, pgoff_t start,$/;"	f
+find_get_pages_contig	filemap.c	/^EXPORT_SYMBOL(find_get_pages_contig);$/;"	v
+find_get_pages_contig	filemap.c	/^unsigned find_get_pages_contig(struct address_space *mapping, pgoff_t index,$/;"	f
+find_get_pages_tag	filemap.c	/^EXPORT_SYMBOL(find_get_pages_tag);$/;"	v
+find_get_pages_tag	filemap.c	/^unsigned find_get_pages_tag(struct address_space *mapping, pgoff_t *index,$/;"	f
+find_lock_entry	filemap.c	/^EXPORT_SYMBOL(find_lock_entry);$/;"	v
+find_lock_entry	filemap.c	/^struct page *find_lock_entry(struct address_space *mapping, pgoff_t offset)$/;"	f
+generic_file_direct_write	filemap.c	/^EXPORT_SYMBOL(generic_file_direct_write);$/;"	v
+generic_file_direct_write	filemap.c	/^generic_file_direct_write(struct kiocb *iocb, struct iov_iter *from, loff_t pos)$/;"	f
+generic_file_mmap	filemap.c	/^EXPORT_SYMBOL(generic_file_mmap);$/;"	v
+generic_file_mmap	filemap.c	/^int generic_file_mmap(struct file * file, struct vm_area_struct * vma)$/;"	f
+generic_file_read_iter	filemap.c	/^EXPORT_SYMBOL(generic_file_read_iter);$/;"	v
+generic_file_read_iter	filemap.c	/^generic_file_read_iter(struct kiocb *iocb, struct iov_iter *iter)$/;"	f
+generic_file_readonly_mmap	filemap.c	/^EXPORT_SYMBOL(generic_file_readonly_mmap);$/;"	v
+generic_file_readonly_mmap	filemap.c	/^int generic_file_readonly_mmap(struct file * file, struct vm_area_struct * vma)$/;"	f
+generic_file_readonly_mmap	filemap.c	/^int generic_file_readonly_mmap(struct file *file, struct vm_area_struct *vma)$/;"	f
+generic_file_vm_ops	filemap.c	/^const struct vm_operations_struct generic_file_vm_ops = {$/;"	v	typeref:struct:vm_operations_struct
+generic_file_write_iter	filemap.c	/^EXPORT_SYMBOL(generic_file_write_iter);$/;"	v
+generic_file_write_iter	filemap.c	/^ssize_t generic_file_write_iter(struct kiocb *iocb, struct iov_iter *from)$/;"	f
+generic_perform_write	filemap.c	/^EXPORT_SYMBOL(generic_perform_write);$/;"	v
+generic_perform_write	filemap.c	/^ssize_t generic_perform_write(struct file *file,$/;"	f
+generic_write_checks	filemap.c	/^EXPORT_SYMBOL(generic_write_checks);$/;"	v
+generic_write_checks	filemap.c	/^inline ssize_t generic_write_checks(struct kiocb *iocb, struct iov_iter *from)$/;"	f
+grab_cache_page_write_begin	filemap.c	/^EXPORT_SYMBOL(grab_cache_page_write_begin);$/;"	v
+grab_cache_page_write_begin	filemap.c	/^struct page *grab_cache_page_write_begin(struct address_space *mapping,$/;"	f
+page_cache_next_hole	filemap.c	/^EXPORT_SYMBOL(page_cache_next_hole);$/;"	v
+page_cache_next_hole	filemap.c	/^pgoff_t page_cache_next_hole(struct address_space *mapping,$/;"	f
+page_cache_prev_hole	filemap.c	/^EXPORT_SYMBOL(page_cache_prev_hole);$/;"	v
+page_cache_prev_hole	filemap.c	/^pgoff_t page_cache_prev_hole(struct address_space *mapping,$/;"	f
+page_cache_read	filemap.c	/^static int page_cache_read(struct file *file, pgoff_t offset)$/;"	f	file:
+page_cache_tree_delete	filemap.c	/^static void page_cache_tree_delete(struct address_space *mapping,$/;"	f	file:
+page_cache_tree_insert	filemap.c	/^static int page_cache_tree_insert(struct address_space *mapping,$/;"	f	file:
+page_endio	filemap.c	/^EXPORT_SYMBOL_GPL(page_endio);$/;"	v
+page_endio	filemap.c	/^void page_endio(struct page *page, int rw, int err)$/;"	f
+page_waitqueue	filemap.c	/^EXPORT_SYMBOL(page_waitqueue);$/;"	v
+page_waitqueue	filemap.c	/^wait_queue_head_t *page_waitqueue(struct page *page)$/;"	f
+pagecache_get_page	filemap.c	/^EXPORT_SYMBOL(pagecache_get_page);$/;"	v
+pagecache_get_page	filemap.c	/^struct page *pagecache_get_page(struct address_space *mapping, pgoff_t offset,$/;"	f
+pagecache_write_begin	filemap.c	/^EXPORT_SYMBOL(pagecache_write_begin);$/;"	v
+pagecache_write_begin	filemap.c	/^int pagecache_write_begin(struct file *file, struct address_space *mapping,$/;"	f
+pagecache_write_end	filemap.c	/^EXPORT_SYMBOL(pagecache_write_end);$/;"	v
+pagecache_write_end	filemap.c	/^int pagecache_write_end(struct file *file, struct address_space *mapping,$/;"	f
+read_cache_page	filemap.c	/^EXPORT_SYMBOL(read_cache_page);$/;"	v
+read_cache_page	filemap.c	/^struct page *read_cache_page(struct address_space *mapping,$/;"	f
+read_cache_page_gfp	filemap.c	/^EXPORT_SYMBOL(read_cache_page_gfp);$/;"	v
+read_cache_page_gfp	filemap.c	/^struct page *read_cache_page_gfp(struct address_space *mapping,$/;"	f
+replace_page_cache_page	filemap.c	/^EXPORT_SYMBOL_GPL(replace_page_cache_page);$/;"	v
+replace_page_cache_page	filemap.c	/^int replace_page_cache_page(struct page *old, struct page *new, gfp_t gfp_mask)$/;"	f
+shrink_readahead_size_eio	filemap.c	/^static void shrink_readahead_size_eio(struct file *filp,$/;"	f	file:
+try_to_release_page	filemap.c	/^EXPORT_SYMBOL(try_to_release_page);$/;"	v
+try_to_release_page	filemap.c	/^int try_to_release_page(struct page *page, gfp_t gfp_mask)$/;"	f
+unlock_page	filemap.c	/^EXPORT_SYMBOL(unlock_page);$/;"	v
+unlock_page	filemap.c	/^void unlock_page(struct page *page)$/;"	f
+wait_on_page_bit	filemap.c	/^EXPORT_SYMBOL(wait_on_page_bit);$/;"	v
+wait_on_page_bit	filemap.c	/^void wait_on_page_bit(struct page *page, int bit_nr)$/;"	f
+wait_on_page_bit_killable	filemap.c	/^int wait_on_page_bit_killable(struct page *page, int bit_nr)$/;"	f
+wait_on_page_bit_killable_timeout	filemap.c	/^EXPORT_SYMBOL_GPL(wait_on_page_bit_killable_timeout);$/;"	v
+wait_on_page_bit_killable_timeout	filemap.c	/^int wait_on_page_bit_killable_timeout(struct page *page,$/;"	f
+wait_on_page_read	filemap.c	/^static struct page *wait_on_page_read(struct page *page)$/;"	f	file:
