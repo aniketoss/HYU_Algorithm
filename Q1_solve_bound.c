@@ -12,8 +12,7 @@
 
 #define BUFFER_SIZE 12
 
-
-typedef struct buffer {  
+typedef struct buffer {
     unsigned int    count;
     unsigned int    data[BUFFER_SIZE];
     int             in;
@@ -21,7 +20,7 @@ typedef struct buffer {
     pthread_mutex_t mutex;
     pthread_cond_t  empty;
     pthread_cond_t  full;
-} buffer_t; // structure for synchonization
+} buffer_t;
 
 static buffer_t shared_buffer = {
     .count = 0,
@@ -30,7 +29,7 @@ static buffer_t shared_buffer = {
     .mutex = PTHREAD_MUTEX_INITIALIZER,
     .empty = PTHREAD_COND_INITIALIZER,
     .full  = PTHREAD_COND_INITIALIZER
-}; // INITIALIZER
+};
 
 static int
 next()
@@ -54,16 +53,28 @@ producer(void *data)
     buffer_t *buffer = (buffer_t *) data;
 
     while (1) {
-        // write proper lock mechansim
-        while (buffer->count == BUFFER_SIZE) {
-						pthread_cond_wait(&(buffer->full), &(buffer->mutex));
-						pthread_cond_signal(&(buffer->empty));
-				} // in case of Buffer is full , Producer must wait.
+
+				//
+				// CRITICAL SECTION STRATS
+				//
+				// write proper lock mechansim	
 				pthread_mutex_lock(&(buffer->mutex));
+				while (buffer->count == BUFFER_SIZE) {
+					pthread_cond_wait(&(buffer->full), &(buffer->mutex));
+				}
         buffer->data[buffer->in] = next();
         buffer->in = (buffer->in + 1) % BUFFER_SIZE;
         buffer->count++;
+				printf("Producer: %d\n", buffer->in);
+				//printf("Producer Sleeping 1 second.....Zzzz\n");
+				sleep(1);	
+				pthread_cond_signal(&(buffer->empty));
+				pthread_cond_wait(&(buffer->full),&(buffer->mutex));	
 				pthread_mutex_unlock(&(buffer->mutex));
+  			//
+				// CRITICAL SECTION ENDS
+				//
+ 
 		}
     return NULL;
 }
@@ -74,17 +85,28 @@ consumer(void *data)
     buffer_t *buffer = (buffer_t *) data;
 
     while (1) {
+				//
+				// CRITICAL SECTION STRATS
+				//
         // write proper lock mechansim
+				pthread_mutex_lock(&(buffer->mutex));	
         while (buffer->count == 0) {
-						pthread_cond_wait(&(buffer->empty),&(buffer->mutex));
-						pthread_cond_signal(&(buffer->full));
-				} // in case of Buffer is empty , consumer must wait.
-				pthread_mutex_lock(&(buffer->mutex));				
-        check(buffer->data[buffer->out]);
+					pthread_cond_wait(&(buffer->empty),&(buffer->mutex));
+				}
+				check(buffer->data[buffer->out]);
         buffer->out = (buffer->out + 1) % BUFFER_SIZE;
         buffer->count--;
+				printf("Consumer: %d\n", buffer->out);			
+				//printf("Consumer Sleeping 1 second.....Zzzz\n");
+				sleep(1);
+				pthread_cond_signal(&(buffer->full));
+        pthread_cond_wait(&(buffer->empty),&(buffer->mutex));   
 				pthread_mutex_unlock(&(buffer->mutex));
-			}
+    		//
+				// CRITICAL SECTION ENDS
+				//
+
+		}
     return NULL;
 }
 
@@ -96,7 +118,7 @@ run(int nc, int np)
 
     for (i = 0; i < n; i++) {
         if (pthread_create(&thread[i], NULL,
-                           i < nc ? consumer : producer, &shared_buffer) != 0 ) {
+                           i < nc ? consumer : producer, &shared_buffer)) {
             fprintf(stderr, "thread creation failed\n");
             return EXIT_FAILURE;
         }
