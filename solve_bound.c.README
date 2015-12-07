@@ -1,0 +1,10 @@
+###Description###
+solve_bound.c is a code for producer and consumer problem, but it is without
+locking mechanism. You are to use synchronization primitives to solve the
+producer and consumer problem.
+
+Q1. Use MUTEX and Condtion Variable to solve the producer and consumer problem.
+Explain your answer in detail. 
+
+Q2  Use Semaphore to solve the producer and consumer problem (you might have to use MUTEX to protect shared variable).
+Explain your answer in detail. 

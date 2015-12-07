@@ -1,5 +1,0 @@
-#!/bin/bash
-for imagename in $(curl -A Mozilla/5.0 http://www.phdcomics.com/comics/most_popular.php 2>&1 | grep -o preview\/[a-zA-Z0-9]*);
-do
-	wget --user-agent=Mozilla "http://www.phdcomics.com/comics/archive/"${imagename:8}"s.gif" --header "Referer: www.phdcomics.com";
-done
